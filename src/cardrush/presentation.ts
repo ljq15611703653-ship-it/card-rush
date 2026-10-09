@@ -1,7 +1,7 @@
 import type {Formation} from './formations';
 import {drawWorker} from './worker-rig';
 export interface CardVisual{card:{rank:number;suit:number};x:number;y:number;rotation:number;size:number;color:string;pattern:string;type:string;age:number;index:number;count:number;impact:number;formation?:Formation;detached?:boolean;bank?:number}
-export interface EnemyVisual{x:number;y:number;hp:number;max:number;seed:number;hit:number}
+export interface EnemyVisual{kind?:import('./enemies').EnemyKind;x:number;y:number;hp:number;max:number;seed:number;hit:number}
 export interface PresentationAdapter{drawEnemy(ctx:CanvasRenderingContext2D,e:EnemyVisual,time:number):void;drawCard(ctx:CanvasRenderingContext2D,s:CardVisual,face?:boolean):void;drawImpact(ctx:CanvasRenderingContext2D,x:number,y:number,r:number,color:string,pattern:string,alpha:number):void}
 const labels=(n:number)=>n===1?'A':n===11?'J':n===12?'Q':n===13?'K':String(n);
 /** Replace with sprite/Spine/Three renderers. Coordinates, card identity and combat stay in the engine. */
